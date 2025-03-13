@@ -1,16 +1,20 @@
-import { useState } from 'react';
-import { useForm } from 'react-hook-form';
-import { yupResolver } from '@hookform/resolvers/yup';
-import * as yup from 'yup';
-import { Link } from 'react-router-dom';
-import { useTranslation } from 'react-i18next';
+import { useState } from "react";
+import { Link } from "react-router-dom";
+import { useForm } from "react-hook-form";
+import { yupResolver } from "@hookform/resolvers/yup";
+import * as yup from "yup";
+
+import { useTranslation } from "@hooks";
 
 interface ForgotPasswordFormInputs {
   email: string;
 }
 
 const schema = yup.object({
-  email: yup.string().email('auth.errors.invalidEmail').required('auth.errors.requiredEmail'),
+  email: yup
+    .string()
+    .email("auth.errors.invalidEmail")
+    .required("auth.errors.requiredEmail"),
 });
 
 const ForgotPasswordPage = () => {
@@ -33,13 +37,13 @@ const ForgotPasswordPage = () => {
     try {
       // This will be replaced with actual API call
       // await authService.forgotPassword(data.email);
-      
+
       // Simulate API call
       await new Promise((resolve) => setTimeout(resolve, 1000));
-      
+
       setIsSubmitted(true);
     } catch (err) {
-      setError('auth.errors.resetPasswordFailed');
+      setError("auth.errors.resetPasswordFailed");
     } finally {
       setIsLoading(false);
     }
@@ -52,8 +56,12 @@ const ForgotPasswordPage = () => {
           <Link to="/" className="text-3xl font-bold text-primary">
             KaamReady
           </Link>
-          <h2 className="text-2xl font-semibold mt-4">{t('auth.forgotPasswordTitle')}</h2>
-          <p className="text-gray-600 mt-2">{t('auth.forgotPasswordSubtitle')}</p>
+          <h2 className="text-2xl font-semibold mt-4">
+            {t("auth.forgotPasswordTitle")}
+          </h2>
+          <p className="text-gray-600 mt-2">
+            {t("auth.forgotPasswordSubtitle")}
+          </p>
         </div>
 
         {error && (
@@ -65,43 +73,55 @@ const ForgotPasswordPage = () => {
         {isSubmitted ? (
           <div className="text-center">
             <div className="bg-success bg-opacity-10 text-success px-4 py-3 rounded-md mb-6">
-              {t('auth.resetLinkSent')}
+              {t("auth.resetLinkSent")}
             </div>
-            <p className="text-gray-600 mb-6">{t('auth.checkEmailInstructions')}</p>
+            <p className="text-gray-600 mb-6">
+              {t("auth.checkEmailInstructions")}
+            </p>
             <Link to="/login" className="btn-primary inline-block">
-              {t('auth.backToLogin')}
+              {t("auth.backToLogin")}
             </Link>
           </div>
         ) : (
           <form onSubmit={handleSubmit(onSubmit)} className="space-y-6">
             <div>
-              <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-1">
-                {t('auth.email')}
+              <label
+                htmlFor="email"
+                className="block text-sm font-medium text-gray-700 mb-1"
+              >
+                {t("auth.email")}
               </label>
               <input
                 id="email"
                 type="email"
-                {...register('email')}
+                {...register("email")}
                 className="input-field"
-                placeholder={t('auth.emailPlaceholder')}
+                placeholder={t("auth.emailPlaceholder")}
                 disabled={isLoading}
               />
               {errors.email && (
-                <p className="text-error text-sm mt-1">{t(errors.email.message || '')}</p>
+                <p className="text-error text-sm mt-1">
+                  {t(errors.email.message || "")}
+                </p>
               )}
             </div>
 
             <button
               type="submit"
-              className={`w-full btn-primary py-3 ${isLoading ? 'opacity-70 cursor-not-allowed' : ''}`}
+              className={`w-full btn-primary py-3 ${
+                isLoading ? "opacity-70 cursor-not-allowed" : ""
+              }`}
               disabled={isLoading}
             >
-              {isLoading ? t('common.loading') : t('auth.resetPassword')}
+              {isLoading ? t("common.loading") : t("auth.resetPassword")}
             </button>
 
             <div className="text-center mt-4">
-              <Link to="/login" className="text-primary hover:underline text-sm">
-                {t('auth.backToLogin')}
+              <Link
+                to="/login"
+                className="text-primary hover:underline text-sm"
+              >
+                {t("auth.backToLogin")}
               </Link>
             </div>
           </form>
@@ -109,9 +129,9 @@ const ForgotPasswordPage = () => {
 
         <div className="mt-8 pt-6 border-t border-gray-200">
           <p className="text-sm text-gray-500 text-center">
-            {t('auth.noAccount')}{' '}
+            {t("auth.noAccount")}{" "}
             <Link to="/register" className="text-primary hover:underline">
-              {t('auth.register')}
+              {t("auth.register")}
             </Link>
           </p>
         </div>

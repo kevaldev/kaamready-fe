@@ -41,16 +41,16 @@
     "Liberation Mono", "Courier New", monospace;
 }
 
-/* @layer base {
+@layer base {
   .dark {
-    --color-light: #333333; 
-    --color-dark:  #f5f5f5; 
+    --color-light: #333333;
+    --color-dark: #f5f5f5;
   }
 
-  body {
+  /* body {
     @apply font-sans text-dark bg-light transition-colors duration-200;
-  }
-} */
+  } */
+}
 
 @layer components {
   .btn-primary {

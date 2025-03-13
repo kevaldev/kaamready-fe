@@ -1,10 +1,11 @@
 import { useState } from "react";
+import { Link, useNavigate, useLocation } from "react-router-dom";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
 import { useDispatch } from "react-redux";
+
+import { useTranslation } from "@hooks";
 import { register as registerUser } from "@redux/slices/authSlice";
 import { AppDispatch } from "@redux/store";
 

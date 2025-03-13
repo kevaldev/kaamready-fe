@@ -1,7 +1,7 @@
 import { lazy, Suspense } from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
 // import ProtectedRoute from "../components/layout/ProtectedRoute";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@hooks";
 
 // Layouts
 const CustomerLayout = lazy(() => import("@layouts/CustomerLayout"));

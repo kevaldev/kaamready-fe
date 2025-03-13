@@ -1,5 +1,4 @@
 import { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { Link } from "react-router-dom";
 import {
   FiSearch,
@@ -9,6 +8,8 @@ import {
   FiShield,
   FiHeadphones,
 } from "react-icons/fi";
+
+import { useTranslation } from "@hooks";
 
 const LandingPage = () => {
   const { t } = useTranslation();

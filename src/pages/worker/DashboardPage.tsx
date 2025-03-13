@@ -1,9 +1,9 @@
 import React, { useEffect } from "react";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import { FiCalendar, FiDollarSign, FiStar, FiTrendingUp } from "react-icons/fi";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
+
+import { useTranslation } from "@hooks";
+import { Card, Button } from "@components/common";
 import { AppDispatch } from "@redux/store";
 // These would be implemented in the actual application
 // import { fetchWorkerJobs } from '@redux/slices/workerSlice';

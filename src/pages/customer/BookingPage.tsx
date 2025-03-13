@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FiCalendar,
@@ -12,10 +11,9 @@ import {
   FiUser,
   FiCheck,
 } from "react-icons/fi";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
-import FormField from "@components/common/FormField";
+import { useTranslation } from "@hooks";
 import { AppDispatch } from "@redux/store";
+import { Card, Button, FormField } from "@components/common";
 // These would be implemented in the actual application
 // import { createBooking } from '@redux/slices/bookingSlice';
 // import { selectUserProfile } from '@redux/slices/userSlice';
