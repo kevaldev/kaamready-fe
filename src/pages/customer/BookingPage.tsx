@@ -12,10 +12,8 @@ import {
   FiCheck,
 } from "react-icons/fi";
 import { useTranslation } from "@hooks";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
-import FormField from "@components/common/FormField";
 import { AppDispatch } from "@redux/store";
+import { Card, Button, FormField } from "@components/common";
 // These would be implemented in the actual application
 // import { createBooking } from '@redux/slices/bookingSlice';
 // import { selectUserProfile } from '@redux/slices/userSlice';

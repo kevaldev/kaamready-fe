@@ -1,6 +1,6 @@
+import { useState } from "react";
 import { Outlet, NavLink } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectUserProfile } from "@redux/slices/userSlice";
 import {
   FiHome,
   FiUsers,
@@ -10,7 +10,8 @@ import {
   FiMenu,
   FiX,
 } from "react-icons/fi";
-import { useState } from "react";
+
+import { selectUserProfile } from "@redux/slices/userSlice";
 import { useTranslation } from "@hooks";
 
 const AdminLayout = () => {

@@ -8,6 +8,7 @@ import {
   FiShield,
   FiHeadphones,
 } from "react-icons/fi";
+
 import { useTranslation } from "@hooks";
 
 const LandingPage = () => {

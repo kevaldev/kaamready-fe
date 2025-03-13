@@ -2,8 +2,7 @@ import React, { Fragment, useState } from "react";
 import { NavLink } from "react-router-dom";
 import { FiMenu, FiX } from "react-icons/fi";
 import { useTranslation } from "@hooks";
-import ThemeToggle from "@components/ThemeToggle";
-import LanguageSwitcher from "@components/LanguageSwitcher";
+import { LanguageSwitcher, ThemeToggle } from "@components";
 
 const Header = ({ profile, navItems }) => {
   const { t } = useTranslation();

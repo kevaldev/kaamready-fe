@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import { FiSearch, FiMapPin, FiFilter, FiStar } from "react-icons/fi";
+
 import { useTranslation } from "@hooks";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
+import { Card, Button } from "@components/common";
 
 interface ServiceItem {
   id: string;

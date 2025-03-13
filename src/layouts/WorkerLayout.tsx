@@ -1,11 +1,10 @@
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
-import { selectUserProfile } from "@redux/slices/userSlice";
 import { FiHome, FiBriefcase, FiDollarSign, FiUser } from "react-icons/fi";
+
+import { selectUserProfile } from "@redux/slices/userSlice";
 import { useTranslation } from "@hooks";
-import Header from "./common/Header";
-import Footer from "./common/Footer";
-import Sidebar from "./common/Sidebar";
+import { Header, Footer, Sidebar } from "./common";
 
 const WorkerLayout = () => {
   const { t } = useTranslation();

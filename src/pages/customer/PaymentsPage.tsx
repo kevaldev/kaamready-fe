@@ -5,8 +5,8 @@ import {
   FiChevronDown,
   FiChevronUp,
 } from "react-icons/fi";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
+
+import { Card, Button } from "@components/common";
 import { useTranslation } from "@hooks";
 
 interface PaymentItem {

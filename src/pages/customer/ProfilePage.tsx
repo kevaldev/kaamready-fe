@@ -3,9 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { useDispatch, useSelector } from "react-redux";
 import { FiUser, FiPhone, FiMail, FiMapPin } from "react-icons/fi";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
-import FormField from "@components/common/FormField";
+
+import { Card, Button, FormField } from "@components/common";
 import { AppDispatch } from "@redux/store";
 import { customerProfileSchema } from "@schemas/customerSchema";
 import { useTranslation } from "@hooks";

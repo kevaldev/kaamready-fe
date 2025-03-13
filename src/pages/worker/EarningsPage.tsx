@@ -6,9 +6,9 @@ import {
   FiTrendingUp,
   FiDownload,
 } from "react-icons/fi";
+
 import { useTranslation } from "@hooks";
-import Card from "@components/common/Card";
-import Button from "@components/common/Button";
+import { Card, Button } from "@components/common";
 import { AppDispatch } from "@redux/store";
 // These would be implemented in the actual application
 // import { fetchWorkerEarnings } from '@redux/slices/workerSlice';

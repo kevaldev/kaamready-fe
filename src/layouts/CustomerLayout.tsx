@@ -1,5 +1,6 @@
 import { Outlet } from "react-router-dom";
 import { useSelector } from "react-redux";
+
 import { selectUserProfile } from "@redux/slices/userSlice";
 import {
   FiHome,
@@ -8,10 +9,9 @@ import {
   FiCreditCard,
   FiUser,
 } from "react-icons/fi";
-import Header from "./common/Header";
-import Footer from "./common/Footer";
-import Sidebar from "./common/Sidebar";
+
 import { useTranslation } from "@hooks";
+import { Header, Footer, Sidebar } from "./common";
 
 const CustomerLayout = () => {
   const { t } = useTranslation();
