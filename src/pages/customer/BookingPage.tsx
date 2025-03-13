@@ -2,7 +2,6 @@ import React, { useState, useEffect } from "react";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import { useTranslation } from "react-i18next";
 import { useDispatch, useSelector } from "react-redux";
 import {
   FiCalendar,
@@ -12,6 +11,7 @@ import {
   FiUser,
   FiCheck,
 } from "react-icons/fi";
+import { useTranslation } from "@hooks";
 import Card from "@components/common/Card";
 import Button from "@components/common/Button";
 import FormField from "@components/common/FormField";

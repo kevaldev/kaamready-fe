@@ -3,7 +3,8 @@ import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import { Link, useNavigate, useLocation } from "react-router-dom";
-import { useTranslation } from "react-i18next";
+import { useTranslation } from "@hooks";
+
 import { useDispatch } from "react-redux";
 import { register as registerUser } from "@redux/slices/authSlice";
 import { AppDispatch } from "@redux/store";

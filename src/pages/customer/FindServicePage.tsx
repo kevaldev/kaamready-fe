@@ -1,6 +1,6 @@
 import React, { useState } from "react";
-import { useTranslation } from "react-i18next";
 import { FiSearch, FiMapPin, FiFilter, FiStar } from "react-icons/fi";
+import { useTranslation } from "@hooks";
 import Card from "@components/common/Card";
 import Button from "@components/common/Button";
 
