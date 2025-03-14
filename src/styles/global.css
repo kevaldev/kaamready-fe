@@ -34,8 +34,9 @@
   --color-dark: #333333;
 
   /* Fonts */
-  --font-sans: ui-sans-serif, system-ui, sans-serif, "Apple Color Emoji",
-    "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif,
+    "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   --font-serif: ui-serif, Georgia, Cambria, "Times New Roman", Times, serif;
   --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas,
     "Liberation Mono", "Courier New", monospace;
@@ -43,13 +44,7 @@
 
 @layer base {
   .dark {
-    --color-light: #333333;
-    --color-dark: #f5f5f5;
   }
-
-  /* body {
-    @apply font-sans text-dark bg-light transition-colors duration-200;
-  } */
 }
 
 @layer components {
@@ -60,19 +55,4 @@
   .btn-secondary {
     @apply bg-secondary text-white px-4 py-2 rounded-md hover:bg-secondary-700 transition-colors;
   }
-}
-
-/* :root {
-  --color-primary: #2a4d69;
-  --color-secondary: #e76f51;
-  --color-success: #2ecc71;
-  --color-error: #e74c3c;
-  --color-light: #f5f5f5;
-  --color-dark: #333333;
-} */
-
-body {
-  font-family: "Inter", sans-serif;
-  /* color: var(--color-dark);
-  background-color: var(--color-light); */
 }
