@@ -32,6 +32,14 @@ const EarningsPage = lazy(() => import("@pages/worker/EarningsPage"));
 const WorkerDashboardPage = lazy(() => import("@pages/worker/DashboardPage"));
 const WorkerProfilePage = lazy(() => import("@pages/worker/ProfilePage"));
 
+// Admin Pages
+const AdminDashboardPage = lazy(() => import("@pages/admin/DashboardPage"));
+const UsersPage = lazy(() => import("@pages/admin/UsersPage"));
+const WorkersPage = lazy(() => import("@pages/admin/WorkersPage"));
+const AdminBookingsPage = lazy(() => import("@pages/admin/BookingsPage"));
+const AdminPaymentsPage = lazy(() => import("@pages/admin/PaymentsPage"));
+const DisputesPage = lazy(() => import("@pages/admin/DashboardPage"));
+
 // Loading Component
 const LoadingSpinner = () => {
   const { t } = useTranslation();
@@ -78,12 +86,12 @@ const AppRoutes = () => {
         {/* Admin Routes */}
         <Route path="/admin" element={<AdminLayout />}>
           <Route index element={<Navigate to="/admin/dashboard" replace />} />
-          <Route path="dashboard" element={<div>Admin Dashboard</div>} />
-          <Route path="users" element={<div>User Management</div>} />
-          <Route path="workers" element={<div>Worker Management</div>} />
-          <Route path="bookings" element={<div>Booking Management</div>} />
-          <Route path="payments" element={<div>Payment Management</div>} />
-          <Route path="disputes" element={<div>Dispute Management</div>} />
+          <Route path="dashboard" element={<AdminDashboardPage />} />
+          <Route path="users" element={<UsersPage />} />
+          <Route path="workers" element={<WorkersPage />} />
+          <Route path="bookings" element={<AdminBookingsPage />} />
+          <Route path="payments" element={<AdminPaymentsPage />} />
+          <Route path="disputes" element={<DisputesPage />} />
         </Route>
 
         {/* 404 Route */}
