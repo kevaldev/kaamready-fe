@@ -44,6 +44,48 @@
 
 @layer base {
   .dark {
+    /* Primary Colors (Adjusted for Dark Mode) */
+    --color-primary: #91c9f7;
+    --color-primary-50: #082f49;
+    --color-primary-100: #0c4a6e;
+    --color-primary-200: #075985;
+    --color-primary-300: #0369a1;
+    --color-primary-400: #0284c7;
+    --color-primary-500: #0ea5e9;
+    --color-primary-600: #38bdf8;
+    --color-primary-700: #7dd3fc;
+    --color-primary-800: #bae6fd;
+    --color-primary-900: #e0f2fe;
+    --color-primary-950: #f0f9ff;
+
+    /* Secondary Colors (Adjusted for Dark Mode) */
+    --color-secondary: #f7a799;
+    --color-secondary-50: #2e1065;
+    --color-secondary-100: #4c1d95;
+    --color-secondary-200: #5b21b6;
+    --color-secondary-300: #6d28d9;
+    --color-secondary-400: #7c3aed;
+    --color-secondary-500: #8b5cf6;
+    --color-secondary-600: #a78bfa;
+    --color-secondary-700: #c4b5fd;
+    --color-secondary-800: #ddd6fe;
+    --color-secondary-900: #ede9fe;
+    --color-secondary-950: #f5f3ff;
+
+    /* Other Colors */
+    --color-success: #27ae60;
+    --color-error: #c0392b;
+    --color-light: #1a1a1a;
+    --color-dark: #f5f5f5;
+
+    /* Background and Text Colors */
+    --bg-primary: var(--color-dark);
+    --bg-secondary: #1f2937;
+    --bg-tertiary: #111827;
+    --text-primary: #f3f4f6;
+    --text-secondary: #d1d5db;
+    --text-tertiary: #9ca3af;
+    --border-color: #374151;
   }
 }
 

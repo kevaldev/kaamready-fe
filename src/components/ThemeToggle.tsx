@@ -34,7 +34,10 @@ const ThemeToggle = () => {
   };
 
   return (
-    <Button onClick={toggleTheme} className="!rounded-full !p-2">
+    <Button
+      onClick={toggleTheme}
+      className="!rounded-full !p-2 bg-primary-100 dark:bg-primary-900 text-primary-900 dark:text-primary-100"
+    >
       {darkMode ? (
         <FiSun className="w-5 h-5" />
       ) : (

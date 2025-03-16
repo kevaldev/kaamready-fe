@@ -1,5 +1,5 @@
-import React, { SelectHTMLAttributes, forwardRef } from 'react';
-import { FieldError } from 'react-hook-form';
+import React, { SelectHTMLAttributes, forwardRef } from "react";
+import { FieldError } from "react-hook-form";
 
 interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   label?: string;
@@ -9,62 +9,82 @@ interface SelectProps extends SelectHTMLAttributes<HTMLSelectElement> {
   fullWidth?: boolean;
 }
 
-const Select = forwardRef<HTMLSelectElement, SelectProps>((
-  {
-    label,
-    error,
-    helperText,
-    options,
-    className = '',
-    fullWidth = true,
-    ...rest
-  },
-  ref
-) => {
-  const selectClasses = `
-    block w-full px-4 py-2 text-gray-900 border rounded-md shadow-sm appearance-none
-    ${error ? 'border-red-500 focus:ring-red-500 focus:border-red-500' : 'border-gray-300 focus:ring-primary-500 focus:border-primary-500'}
+const Select = forwardRef<HTMLSelectElement, SelectProps>(
+  (
+    {
+      label,
+      error,
+      helperText,
+      options,
+      className = "",
+      fullWidth = true,
+      ...rest
+    },
+    ref
+  ) => {
+    const selectClasses = `
+    block w-full px-4 py-2 text-gray-900 dark:text-gray-100 border rounded-md shadow-sm appearance-none
+    ${
+      error
+        ? "border-red-500 focus:ring-red-500 focus:border-red-500 dark:border-red-400 dark:focus:ring-red-400 dark:focus:border-red-400"
+        : "border-gray-300 focus:ring-primary-500 focus:border-primary-500 dark:border-gray-700 dark:focus:ring-primary-400 dark:focus:border-primary-400"
+    }
     focus:outline-none focus:ring-2 focus:ring-offset-0
-    bg-white
+    bg-white dark:bg-dark-800
   `;
 
-  const widthClass = fullWidth ? 'w-full' : '';
+    const widthClass = fullWidth ? "w-full" : "";
 
-  return (
-    <div className={`${widthClass} ${className}`}>
-      {label && (
-        <label htmlFor={rest.id} className="block text-sm font-medium text-gray-700 mb-1">
-          {label}
-        </label>
-      )}
-      <div className="relative">
-        <select
-          ref={ref}
-          className={selectClasses}
-          {...rest}
-        >
-          {options.map((option) => (
-            <option key={option.value} value={option.value}>
-              {option.label}
-            </option>
-          ))}
-        </select>
-        <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
-          <svg className="w-5 h-5 text-gray-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth="2" d="M19 9l-7 7-7-7"></path>
-          </svg>
+    return (
+      <div className={`${widthClass} ${className}`}>
+        {label && (
+          <label
+            htmlFor={rest.id}
+            className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-1"
+          >
+            {label}
+          </label>
+        )}
+        <div className="relative">
+          <select ref={ref} className={selectClasses} {...rest}>
+            {options.map((option) => (
+              <option key={option.value} value={option.value}>
+                {option.label}
+              </option>
+            ))}
+          </select>
+          <div className="absolute inset-y-0 right-0 flex items-center px-2 pointer-events-none">
+            <svg
+              className="w-5 h-5 text-gray-400 dark:text-gray-500"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+            >
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth="2"
+                d="M19 9l-7 7-7-7"
+              ></path>
+            </svg>
+          </div>
         </div>
+        {error && (
+          <p className="mt-1 text-sm text-red-600 dark:text-red-400">
+            {error.message}
+          </p>
+        )}
+        {helperText && !error && (
+          <p className="mt-1 text-sm text-gray-500 dark:text-gray-400">
+            {helperText}
+          </p>
+        )}
       </div>
-      {error && (
-        <p className="mt-1 text-sm text-red-600">{error.message}</p>
-      )}
-      {helperText && !error && (
-        <p className="mt-1 text-sm text-gray-500">{helperText}</p>
-      )}
-    </div>
-  );
-});
+    );
+  }
+);
 
-Select.displayName = 'Select';
+Select.displayName = "Select";
 
 export default Select;

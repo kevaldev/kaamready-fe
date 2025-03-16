@@ -10,6 +10,7 @@ import {
 } from "react-icons/fi";
 
 import { useTranslation } from "@hooks";
+import { Header } from "@layouts/common";
 
 const LandingPage = () => {
   const { t } = useTranslation();
@@ -58,33 +59,8 @@ const LandingPage = () => {
   return (
     <div className="flex flex-col min-h-screen">
       {/* Header */}
-      <header className="bg-white shadow-sm sticky top-0 z-10">
-        <div className="container mx-auto px-4 py-3 flex justify-between items-center">
-          <div className="flex items-center">
-            <Link to="/" className="text-2xl font-bold text-primary">
-              KaamReady
-            </Link>
-          </div>
 
-          <div className="hidden md:flex items-center space-x-4">
-            <Link to="/login" className="text-gray-700 hover:text-primary">
-              {t("auth.login")}
-            </Link>
-            <Link to="/register" className="btn-primary">
-              {t("auth.register")}
-            </Link>
-          </div>
-
-          <div className="md:hidden flex items-center">
-            <Link to="/login" className="text-gray-700 hover:text-primary mr-2">
-              {t("auth.login")}
-            </Link>
-            <Link to="/register" className="btn-primary text-sm py-1 px-2">
-              {t("auth.register")}
-            </Link>
-          </div>
-        </div>
-      </header>
+      <Header fromLandingPage={true} />
 
       {/* Hero Section */}
       <section className="bg-primary text-white py-16 md:py-24">
