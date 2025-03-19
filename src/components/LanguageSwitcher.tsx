@@ -1,11 +1,13 @@
 import { useState } from "react";
-import Button from "./common/Button";
 import { useTranslation } from "@hooks";
+import { Dropdown, DropdownItem } from "./ui/dropdown";
+import { LanguageSwitchIcon } from "@assets/icons";
 
 interface Language {
   code: string;
   name: string;
   flag: string;
+  shortName: string;
 }
 
 const LanguageSwitcher = () => {
@@ -13,9 +15,9 @@ const LanguageSwitcher = () => {
   const [isOpen, setIsOpen] = useState(false);
 
   const languages: Language[] = [
-    { code: "en", name: "English", flag: "🇬🇧" },
-    { code: "hi", name: "हिंदी", flag: "🇮🇳" },
-    { code: "gu", name: "ગુજરાતી", flag: "🇮🇳" },
+    { code: "en", name: "English", shortName: "Eng.", flag: "(A)" },
+    { code: "hi", name: "हिंदी", shortName: "हि.", flag: "(अ)" },
+    { code: "gu", name: "ગુજરાતી", shortName: "ગુજ.", flag: "(અ)" },
   ];
 
   const currentLanguage =
@@ -26,54 +28,56 @@ const LanguageSwitcher = () => {
     changeLanguage(languageCode);
     setIsOpen(false);
   };
+  const handleClick = () => setIsOpen(!isOpen);
 
   return (
-    <div className="relative">
-      <Button variant="outline" onClick={() => setIsOpen(!isOpen)}>
-        {/* <span className="text-lg">{currentLanguage.flag}</span> */}
-        <span>{currentLanguage.name}</span>
-        <svg
-          className={`h-4 w-4 transition-transform ${
-            isOpen ? "rotate-180" : ""
-          }`}
-          fill="none"
-          stroke="currentColor"
-          viewBox="0 0 24 24"
-          xmlns="http://www.w3.org/2000/svg"
+    <>
+      <div className="relative">
+        <button
+          className="relative flex items-center h-11 w-11 justify-center rounded-full text-gray-500 transition-colors bg-white border border-gray-200 dropdown-toggle hover:text-gray-700 hover:bg-gray-100 dark:border-gray-800 dark:bg-gray-900 dark:text-gray-400 dark:hover:bg-gray-800 dark:hover:text-white duration-300 gap-1"
+          onClick={handleClick}
         >
-          <path
-            strokeLinecap="round"
-            strokeLinejoin="round"
-            strokeWidth="2"
-            d="M19 9l-7 7-7-7"
-          />
-        </svg>
-      </Button>
-
-      {isOpen && (
-        <div className="absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white ring-1 ring-black ring-opacity-5 z-10">
-          <div className="py-1" role="menu" aria-orientation="vertical">
-            {languages.map((language) => (
-              <button
-                key={language.code}
-                onClick={() => handleLanguageChange(language.code)}
-                className={`block w-full text-left px-4 py-2 text-sm ${
-                  language.code === currentLanguage.code
-                    ? "bg-gray-100 text-gray-900"
-                    : "text-gray-700 hover:bg-gray-100"
-                }`}
-                role="menuitem"
-              >
-                <div className="flex items-center space-x-2">
-                  {/* <span className="text-lg">{language.flag}</span> */}
-                  <span>{language.name}</span>
-                </div>
-              </button>
+          <LanguageSwitchIcon className="h-9 w-9 fill-current" />
+          {/* <span className="hidden md:block">{currentLanguage.name}</span>
+          <span className="text-xs sm:text-sm">
+            {currentLanguage.shortName}
+          </span>
+          <span
+            className={`hidden sm:block text-gray-600 text-xs dark:text-indigo-100 ${
+              currentLanguage.flag === languages[0].flag ? "leading-tight" : ""
+            }`}
+          >
+            {currentLanguage.flag}
+          </span> */}
+        </button>
+        <Dropdown
+          isOpen={isOpen}
+          onClose={handleClick}
+          className="absolute mt-[17px] flex max-w-38 flex-col rounded-2xl border border-gray-200 bg-white p-3 shadow-theme-lg dark:border-gray-800 dark:bg-gray-dark sm:w-[361px] !-right-12 lg:right-0"
+        >
+          <ul className="flex flex-col h-auto overflow-y-auto custom-scrollbar">
+            {languages.map((language, index) => (
+              <li key={index}>
+                <DropdownItem
+                  isActive={currentLanguage.code === language.code}
+                  onItemClick={() => handleLanguageChange(language.code)}
+                  className="flex gap-3 rounded-lg border-b border-gray-100 p-1.5 py-2 hover:bg-gray-100 dark:border-gray-800 dark:hover:bg-white/5"
+                >
+                  <div className="flex items-center gap-2">
+                    <span className="text-sm text-gray-900 dark:text-gray-100">
+                      {language.flag}
+                    </span>
+                    <span className="text-md font-medium text-gray-600 dark:text-indigo-100">
+                      {language.name}
+                    </span>
+                  </div>
+                </DropdownItem>
+              </li>
             ))}
-          </div>
-        </div>
-      )}
-    </div>
+          </ul>
+        </Dropdown>
+      </div>
+    </>
   );
 };
 
