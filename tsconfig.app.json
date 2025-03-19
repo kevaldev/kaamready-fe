@@ -38,7 +38,11 @@
       "@constants/*": ["./src/constants/*"],
       "@layouts/*": ["./src/layouts/*"],
       "@schemas/*": ["./src/schemas/*"],
-      "@i18n/*": ["./src/i18n/*"]
+      "@i18n/*": ["./src/i18n/*"],
+      "@components/ui/*": ["./src/components/ui/*"],
+      "@context/*": ["./src/context/*"],
+      "@components/header/*": ["./src/components/header/*"],
+      "@lib/*": ["./src/lib/*"]
     }
   },
   "include": ["src"]
